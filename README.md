@@ -8,7 +8,7 @@ A cutting-edge dashboard for real-time monitoring of crop health, soil condition
 
 ## 🧩 Problem Statement
 
-**SIH25099:**  
+
 AI-powered monitoring of crop health, soil condition, and pest risks using multispectral/hyperspectral imaging and sensor data.
 
 - **Theme:** Agriculture, FoodTech & Rural Development  
