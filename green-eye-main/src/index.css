@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 45 100% 99%;
+    --foreground: 120 8% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 120 8% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 120 8% 15%;
+
+    --primary: 120 40% 28%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 45 60% 95%;
+    --secondary-foreground: 120 8% 15%;
+
+    --muted: 45 30% 96%;
+    --muted-foreground: 120 4% 55%;
+
+    --accent: 88 85% 35%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 45 20% 90%;
+    --input: 45 20% 94%;
+    --ring: 120 40% 28%;
+
+    --radius: 0.75rem;
+    
+    /* AgroLens specific colors */
+    --agro-green: 120 60% 45%;
+    --agro-green-light: 120 40% 85%;
+    --agro-earth: 35 45% 55%;
+    --agro-sky: 200 85% 65%;
+    --agro-warning: 45 95% 55%;
+    --agro-danger: 0 85% 60%;
+    --agro-success: 140 85% 45%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(120 60% 45%) 0%, hsl(88 85% 35%) 100%);
+    --gradient-earth: linear-gradient(135deg, hsl(35 45% 55%) 0%, hsl(25 60% 45%) 100%);
+    --gradient-sky: linear-gradient(135deg, hsl(200 85% 65%) 0%, hsl(220 80% 70%) 100%);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 120 8% 8%;
+    --foreground: 45 20% 95%;
+
+    --card: 120 8% 12%;
+    --card-foreground: 45 20% 95%;
+
+    --popover: 120 8% 12%;
+    --popover-foreground: 45 20% 95%;
+
+    --primary: 120 50% 65%;
+    --primary-foreground: 120 8% 8%;
+
+    --secondary: 120 8% 20%;
+    --secondary-foreground: 45 20% 95%;
+
+    --muted: 120 8% 18%;
+    --muted-foreground: 45 10% 70%;
+
+    --accent: 88 60% 55%;
+    --accent-foreground: 120 8% 8%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 45 20% 95%;
+
+    --border: 120 8% 20%;
+    --input: 120 8% 18%;
+    --ring: 120 50% 65%;
+    
+    /* AgroLens dark specific colors */
+    --agro-green: 120 50% 65%;
+    --agro-green-light: 120 30% 25%;
+    --agro-earth: 35 35% 45%;
+    --agro-sky: 200 60% 55%;
+    --agro-warning: 45 85% 65%;
+    --agro-danger: 0 75% 65%;
+    --agro-success: 140 70% 55%;
+    
+    /* Dark gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(120 50% 35%) 0%, hsl(88 60% 25%) 100%);
+    --gradient-earth: linear-gradient(135deg, hsl(35 35% 35%) 0%, hsl(25 50% 30%) 100%);
+    --gradient-sky: linear-gradient(135deg, hsl(200 60% 35%) 0%, hsl(220 55% 40%) 100%);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

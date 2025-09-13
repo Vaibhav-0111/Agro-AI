@@ -1,0 +1,13 @@
+project_id = "febepplevagjtclyvnjw"
+
+[functions.analyze-image]
+verify_jwt = true
+
+[functions.advanced-image-analysis]
+verify_jwt = true
+
+[functions.generate-report] 
+verify_jwt = true
+
+[functions.weather-data]
+verify_jwt = false
