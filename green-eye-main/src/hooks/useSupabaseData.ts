@@ -37,6 +37,28 @@ export function useFields() {
     };
 
     fetchFields();
+
+    // Realtime: keep fields in sync for this user
+    const channel = supabase
+      .channel('fields-changes')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'fields',
+          filter: `user_id=eq.${user.id}`
+        },
+        () => {
+          // Re-fetch to keep derived lists and ordering correct
+          fetchFields();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, [user]);
 
   return { fields, loading, setFields };
@@ -73,6 +95,26 @@ export function useSensors(fieldId?: string) {
     };
 
     fetchSensors();
+
+    // Realtime: subscribe to sensor changes; we re-fetch to respect joins and filters
+    const channel = supabase
+      .channel('sensors-changes')
+      .on(
+        'postgres_changes',
+        {
+          event: '*',
+          schema: 'public',
+          table: 'sensors'
+        },
+        () => {
+          fetchSensors();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, [fieldId]);
 
   return { sensors, loading };
@@ -105,6 +147,29 @@ export function useSensorReadings(sensorId?: string, limit: number = 100) {
     };
 
     fetchReadings();
+
+    // Realtime: stream new readings for this sensor
+    const channel = supabase
+      .channel(`sensor-readings-${sensorId}`)
+      .on(
+        'postgres_changes',
+        {
+          event: 'INSERT',
+          schema: 'public',
+          table: 'sensor_readings',
+          filter: `sensor_id=eq.${sensorId}`
+        },
+        (payload) => {
+          const newReading = payload.new as SensorReading;
+          // Prepend and cap to limit to keep UI performant
+          setReadings(prev => [newReading, ...prev].slice(0, limit));
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, [sensorId, limit]);
 
   return { readings, loading };
