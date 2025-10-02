@@ -7,6 +7,8 @@ import { AlertsCenter } from "@/components/features/AlertsCenter";
 import { SensorDashboard } from "@/components/features/SensorDashboard";
 import { RealtimeDashboard } from "@/components/features/RealtimeDashboard";
 import { ImageUpload } from "@/components/features/ImageUpload";
+import { LiveAnomalyMonitor } from "@/components/features/LiveAnomalyMonitor";
+import { LiveSensorMap } from "@/components/features/LiveSensorMap";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Activity, TrendingUp, MapPin, Zap, Eye, BarChart3 } from "lucide-react";
@@ -131,6 +133,10 @@ const Index = () => {
           
           <TabsContent value="realtime" className="space-y-4">
             <RealtimeDashboard />
+            <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
+              <LiveAnomalyMonitor />
+              <LiveSensorMap />
+            </div>
           </TabsContent>
           
           <TabsContent value="overview" className="space-y-4">
