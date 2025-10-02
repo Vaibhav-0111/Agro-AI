@@ -14,7 +14,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 
 const sidebarItems = [
-  { icon: BarChart3, label: "Dashboard", path: "/" },
+  { icon: BarChart3, label: "Dashboard", path: "/dashboard" },
   { icon: Camera, label: "Image Analysis", path: "/image-analysis" },
   { icon: Activity, label: "Sensor Data", path: "/sensor-data" },
   { icon: Sprout, label: "AI Insights", path: "/ai-insights" },
