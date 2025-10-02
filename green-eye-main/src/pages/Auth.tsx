@@ -30,7 +30,7 @@ const Auth = () => {
     const checkAuth = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       if (session) {
-        navigate("/");
+        navigate("/dashboard");
       }
     };
     checkAuth();
@@ -52,7 +52,7 @@ const Auth = () => {
       }
 
       toast.success("Welcome back!");
-      navigate("/");
+      navigate("/dashboard");
     } catch (err: any) {
       console.error("Login error:", err);
       setError(err.message || "Login failed. Please try again.");
@@ -69,7 +69,7 @@ const Auth = () => {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${window.location.origin}/`
+          redirectTo: `${window.location.origin}/dashboard`
         }
       });
 
@@ -101,7 +101,7 @@ const Auth = () => {
     }
 
     try {
-      const redirectUrl = `${window.location.origin}/`;
+      const redirectUrl = `${window.location.origin}/dashboard`;
       
       const { error: signupError } = await supabase.auth.signUp({
         email: signupForm.email,
