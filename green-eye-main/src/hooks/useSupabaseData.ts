@@ -16,6 +16,10 @@ export function useFields() {
   const [loading, setLoading] = useState(true);
   const { user } = useAuth();
 
+
+
+
+  
   useEffect(() => {
     if (!user) return;
 
