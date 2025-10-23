@@ -1,4 +1,4 @@
-project_id = "febepplevagjtclyvnjw"
+project_id = "private"
 
 [functions.analyze-image]
 verify_jwt = true
